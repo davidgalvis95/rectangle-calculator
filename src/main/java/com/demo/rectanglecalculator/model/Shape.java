@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Getter
@@ -18,6 +19,7 @@ public abstract class Shape {
 
     private String name;
 
+    @NotNull
     private ShapeType type;
 
     public Shape(){}

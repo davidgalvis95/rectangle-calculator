@@ -23,7 +23,7 @@ public class ShapeDeserializer extends StdDeserializer<Shape> {
     }
 
     @Override
-    public Shape deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+    public Shape deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         final JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         final ObjectMapper mapper = (ObjectMapper)jsonParser.getCodec();
 
@@ -38,6 +38,6 @@ public class ShapeDeserializer extends StdDeserializer<Shape> {
             }
         }
 
-        throw new JsonParseException(jsonParser, "Shape type was not able to be parsed");
+        throw new JsonParseException(jsonParser, "Shape type was not able to be parsed, a known shape 'type' must be passed");
     }
 }

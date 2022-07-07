@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,7 @@ public class RectangleInteractionsController<T extends Shape> {
     private ShapeInteractionsCalculator<T> rectangleInteractionsCalculator;
 
     @GetMapping
-    public ResponseEntity<List<CalculationResult<T>>> getInteractionsForShapes(@RequestBody final InteractionsCalculateRequest<T> interactionsCalculateRequest) {
+    public ResponseEntity<List<CalculationResult<T>>> getInteractionsForShapes(@RequestBody @Valid final InteractionsCalculateRequest<T> interactionsCalculateRequest) {
         return ResponseEntity.ok(rectangleInteractionsCalculator.calculateAllInteractions(interactionsCalculateRequest.getShapes()));
     }
 }

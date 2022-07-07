@@ -4,6 +4,8 @@ import com.demo.rectanglecalculator.model.Shape;
 import com.demo.rectanglecalculator.model.ShapeType;
 import com.demo.rectanglecalculator.model.Vertex;
 import lombok.*;
+
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Setter
@@ -11,8 +13,10 @@ import java.util.UUID;
 @EqualsAndHashCode(callSuper = true)
 public class Rectangle extends Shape {
 
+    @NotNull
     private Vertex bottomLeft;
 
+    @NotNull
     private Vertex topRight;
 
     public Rectangle(){
